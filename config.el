@@ -1,10 +1,11 @@
 ;;; lang/ember/config.el -*- lexical-binding: t; -*-
 
 (use-package! ember-mode
+  :commands (ember-mode)
   :config
-  (map!
-   :map ember-mode-keymap
-   :localleader
+  (message "setting keymap")
+  (map! :map ember-mode-keymap
+        :localleader
    (:prefix ("." . "ember")
     (:prefix ("f" . "find")
      "c" #'ember-open-controller
@@ -62,4 +63,5 @@
      )
     )
    )
+  (message "finished setting keymap")
   )
