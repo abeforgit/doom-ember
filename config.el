@@ -67,14 +67,13 @@
   )
 (if (featurep! +lsp)
     (progn
-     (message "adding hook")
-     (add-hook! '(js2-mode-local-vars-hook
+      (add-hook! '(
+                  js2-mode-local-vars-hook
                   web-mode-local-vars-hook
                   typescript-mode-local-vars-hook
                   )
        (defun ember-lsp-init () (lsp!))
        )
-     (message "registering server")
      (after! lsp-mode
        (lsp-register-client
         (make-lsp-client :new-connection (lsp-stdio-connection (list "node" "/home/arne/repos/installations/ember-language-server/lib/start-server.js" "--stdio"))
